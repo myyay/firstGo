@@ -1,0 +1,26 @@
+*.iml
+.idea/
+target/
+Logs/
+bin/
+*.class
+
+# Eclipse project files
+/target/
+.classpath
+.project
+.DS_Store
+.settings
+*.MF
+/finance-xjk-biz/finance-xjk-biz-service/.gitignore
+/finance-xjk-codeGenerator
+/.metadata
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/dao/XJKMobileNoFlowMapper.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/dao/XJKMobileNoMapper.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/domain/XJKMobileNo.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/domain/XJKMobileNoExample.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/domain/XJKMobileNoFlow.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/com/jd/finance/xjk/account/domain/XJKMobileNoFlowExample.java
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/mappers/XJKMobileNoFlowMapper.xml
+/finance-xjk-autoBuilder/finance-xjk-mybatis-generator/gen/mappers/XJKMobileNoMapper.xml
+.concrete
