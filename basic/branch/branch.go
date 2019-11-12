@@ -29,25 +29,30 @@ func grade(score int) string {
 }
 
 func main() {
-	const filename = "abc.txt"
-	contents, err := ioutil.ReadFile(filename)
+	const filename = "basic/branch/abc.txt"
 
-	if err != nil {
+	if bytes, err := ioutil.ReadFile(filename); err != nil {
 		fmt.Println(err)
+		return
 	} else {
-		fmt.Printf("contents: %s \n", contents)
+		fmt.Printf("%s\n", bytes)
 	}
-
+	//os.Args[0] C:\Users\userName\AppData\Local\Temp\___go_build_firstGo_basic_branch.exe
 	if dir, err := filepath.Abs(filepath.Dir(os.Args[0])); err != nil {
 		fmt.Println(err)
 	} else {
-		fmt.Printf("dir: %s \n", dir)
+		fmt.Printf("dir: %s, os.Args[0]: %s \n", dir, os.Args[0])
 
 	}
-
-	fmt.Println(grade(70))
-	fmt.Println(grade(80))
-	fmt.Println(grade(90))
-	fmt.Println(grade(101))
+	fmt.Println(
+		grade(0),
+		grade(59),
+		grade(60),
+		grade(82),
+		grade(99),
+		grade(100),
+		// Uncomment to see it panics.
+		// grade(-3),
+	)
 
 }

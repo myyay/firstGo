@@ -19,7 +19,7 @@ func main() {
 	fmt.Println()
 
 	for i, ch := range s {
-		fmt.Printf("(%d,%X) ", i, ch) //ch is rune
+		fmt.Printf("(%d,%X,%c) ", i, ch, ch) //ch is a rune
 
 	}
 

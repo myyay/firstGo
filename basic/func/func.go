@@ -20,7 +20,7 @@ func eval(a, b int, op string) (int, error) {
 		q, _ := div(a, b)
 		return q, nil
 	default:
-		return 0, fmt.Errorf("unsupported operation:" + op)
+		return 0, fmt.Errorf("unsupported operation: %s", op)
 
 	}
 }
@@ -30,12 +30,22 @@ func div(a, b int) (q, r int) {
 	return a / b, a % b
 }
 
-func apply(op func(int, int) int, a, b int) int {
+/*func apply(op func(int, int) int, a, b int) int {
 
 	pointer := reflect.ValueOf(op).Pointer()
 	opName := runtime.FuncForPC(pointer).Name()
 
 	fmt.Printf("Calling Function %s with args "+"( %d , %d) \n", opName, a, b)
+	return op(a, b)
+}*/
+
+func apply(op func(a, b int) int, a, b int) int {
+	//获取方法指针
+	pointer := reflect.ValueOf(op).Pointer()
+	//获取操作
+	opName := runtime.FuncForPC(pointer)
+	fmt.Printf("Calling Function %s with args "+"( %d , %d) \n", opName, a, b)
+
 	return op(a, b)
 }
 
@@ -67,7 +77,7 @@ func main() {
 
 	q, r := div(15, 3)
 
-	fmt.Println(q, r)
+	fmt.Printf("13 div 3 is %d mod %d\n", q, r)
 
 	if i, e := eval(3, 4, "x"); e != nil {
 		fmt.Println("Error: ", e)
@@ -75,12 +85,12 @@ func main() {
 		fmt.Println(i)
 	}
 
-	fmt.Println(apply(pow, 3, 4))
+	fmt.Println("pow(3, 4) is:", apply(pow, 3, 4))
 
-	fmt.Println(sum(1, 2, 3, 4, 5))
+	fmt.Println("1+2+...+5 =", sum(1, 2, 3, 4, 5))
 
 	a, b := 3, 4
 	swap(&a, &b)
 
-	fmt.Println(a, b)
+	fmt.Println("a, b after swap is:", a, b)
 }

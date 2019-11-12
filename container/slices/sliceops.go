@@ -9,7 +9,7 @@ func printSlice(s []int) {
 	fmt.Printf("%v len=%d, cap=%d \n", s, len(s), cap(s))
 }
 
-func main() {
+func sliceOps() {
 	//默认值 s=nil
 	var s []int
 

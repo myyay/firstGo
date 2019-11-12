@@ -13,7 +13,7 @@ type atomicInt struct {
 
 func (a *atomicInt) increment() {
 	fmt.Println("safe increment")
-	//利用func 变成同步代码块
+	//利用func 变成同步代码块 相当于synchronized {}
 	func() {
 		a.lock.Lock()
 		defer a.lock.Unlock()
@@ -30,7 +30,7 @@ func (a *atomicInt) get() int {
 }
 
 func main() {
-	//go run -race atomic.go
+	//go run -race atomic.go 查看是否有竞态资源
 	var a atomicInt
 	a.increment()
 	go func() {

@@ -3,29 +3,38 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math/big"
+	"io"
 	"os"
 	"strconv"
+	"strings"
 )
 
 /** 转换成二进制 */
 func convertToBin(n int) string {
+	if n == 0 {
+		return "0"
+	}
 	result := ""
+
 	for ; n > 0; n /= 2 {
 		lsb := n % 2
+		//fmt.Printf("cur n: %d, cur lsb: %d \n", n, lsb)
 		result = strconv.Itoa(lsb) + result
 	}
-	accuracy := big.Above
-	fmt.Print(accuracy)
 	return result
 }
 
 func printFile(filename string) {
-	file, e := os.Open(filename)
-	if e != nil {
-		panic(e)
+	//文件只读
+	file, err := os.Open(filename)
+	if err != nil {
+		panic(err)
 	}
+	printReaderContent(file)
 
+}
+
+func printReaderContent(file io.Reader) {
 	scanner := bufio.NewScanner(file)
 	for scanner.Scan() {
 		fmt.Println(scanner.Text())
@@ -42,4 +51,14 @@ func main() {
 	)
 
 	printFile("abc.txt")
+
+	fmt.Println("================")
+
+	s := `abc"d"
+	kkkk
+    123
+
+	p`
+	printReaderContent(strings.NewReader(s))
+
 }
