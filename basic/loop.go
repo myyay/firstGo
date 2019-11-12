@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math/big"
 	"os"
 	"strconv"
 )
@@ -14,6 +15,8 @@ func convertToBin(n int) string {
 		lsb := n % 2
 		result = strconv.Itoa(lsb) + result
 	}
+	accuracy := big.Above
+	fmt.Print(accuracy)
 	return result
 }
 
@@ -38,5 +41,5 @@ func main() {
 		convertToBin(0),
 	)
 
-	printFile("src/abc.txt")
+	printFile("abc.txt")
 }

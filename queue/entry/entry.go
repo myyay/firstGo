@@ -1,7 +1,7 @@
 package main
 
 import (
-	"firstGo/src/queue"
+	"firstGo/queue"
 	"fmt"
 )
 

@@ -2,7 +2,7 @@ package main
 
 import (
 	"bufio"
-	"firstGo/src/functional/fibonacci/fib"
+	"firstGo/functional/fibonacci/fib"
 	"fmt"
 	"io"
 	"strings"

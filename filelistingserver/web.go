@@ -1,7 +1,7 @@
 package main
 
 import (
-	"firstGo/src/filelistingserver/filelisting"
+	"firstGo/filelistingserver/filelisting"
 	"log"
 	"net/http"
 	"os"

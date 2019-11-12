@@ -1,7 +1,7 @@
 package main
 
 import (
-	"firstGo/src/tree"
+	"firstGo/tree"
 	"fmt"
 )
 

@@ -3,7 +3,7 @@ package main
 import (
 	"bufio"
 	"errors"
-	"firstGo/src/functional/fibonacci/fib"
+	"firstGo/functional/fibonacci/fib"
 	"fmt"
 	"os"
 )

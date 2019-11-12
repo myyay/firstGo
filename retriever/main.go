@@ -1,8 +1,8 @@
 package main
 
 import (
-	"firstGo/src/retriever/mock"
-	"firstGo/src/retriever/real"
+	"firstGo/retriever/mock"
+	"firstGo/retriever/real"
 	"fmt"
 	"time"
 )
