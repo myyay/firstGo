@@ -18,6 +18,13 @@ PATH 要加上GOPATH/bin
 
 执行  `gopm get -u -v -g golang.org/x/tools/cmd/goimports`
 
+##### 表格驱动测试
+
+`basic/basic/triangle_test.go`
+
+`container/norepeating/nonrepeating_test.go.go`
+
+源码中的注释写了一些命令的使用方法 包括普通测试 和 性能测试
 
 
 

@@ -6,13 +6,13 @@ func main() {
 	//map[K]V  复合map map[K}map[K2]V
 
 	m := map[string]string{
-		"name":    "cc mouse",
+		"name":    "ccmouse",
 		"course":  "golang",
 		"site":    "imooc",
-		"quality": "not bad",
+		"quality": "notbad",
 	}
 
-	m2 := make(map[string]int)
+	m2 := make(map[string]int) //m2 == empty map
 
 	var m3 map[string]int
 
@@ -48,5 +48,7 @@ func main() {
 	delete(m, "name")
 	name, ok = m["name"]
 	fmt.Println(name, ok)
+	//打印是空值， 非nil
+	fmt.Println("m[name]:", m["name"])
 
 }

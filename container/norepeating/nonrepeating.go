@@ -22,13 +22,13 @@ func lengthOfNonRepeatingSubStr(s string) int {
 
 }
 
+//存储上次出现的位置+1   0表示没出现过
 var lastOccurred = make([]int, 0xffff)
 
 //清理内存会消耗时间  但如果串特别长的情况下，map的存取还是比数组要慢的
 func lengthOfNonRepeatingSubStr2(s string) int {
-	//存储上次出现的位置+1   0表示没出现过
 
-	//会被编译成mem clear
+	//会被编译成mem clear 通过pprof图可以看出
 	for i := range lastOccurred {
 		lastOccurred[i] = 0
 	}
