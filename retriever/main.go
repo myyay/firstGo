@@ -53,6 +53,7 @@ func main() {
 	r = &real.Retriever{UserAgent: "Mozilla/5.0", Timeout: time.Minute}
 	inspect(r)
 
+	//type assertion 类型判断
 	if retriever, ok := r.(*real.Retriever); ok {
 		fmt.Println("UserAgent", retriever.UserAgent)
 	} else {

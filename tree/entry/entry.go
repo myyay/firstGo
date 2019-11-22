@@ -5,6 +5,7 @@ import (
 	"fmt"
 )
 
+//用组合的方式来实现继承 用于扩充已有的类
 type myTreeNode struct {
 	node *tree.Node
 }

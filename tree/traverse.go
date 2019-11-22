@@ -2,6 +2,18 @@ package tree
 
 import "fmt"
 
+//中序遍历
+func (node *Node) NormalTraverse() {
+	if nil == node {
+		return
+	}
+
+	node.Left.NormalTraverse()
+	node.Print()
+	node.Right.NormalTraverse()
+
+}
+
 func (node *Node) Traverse() {
 
 	node.TraverseFunc(func(node *Node) {
@@ -24,7 +36,6 @@ func (node *Node) TraverseFunc(f func(node *Node)) {
 }
 
 func (node *Node) TraverseWithChannel() chan *Node {
-
 	out := make(chan *Node)
 	go func() {
 		node.TraverseFunc(func(innerNode *Node) {
