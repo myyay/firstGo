@@ -10,35 +10,51 @@ func main() {
 
 	arr := [...]int{0, 1, 2, 3, 4, 5, 6, 7}
 
-	fmt.Println(arr)
-
-	//左闭右开区间， 取第2个到第5个  slice是一个视图
-	fmt.Println("arr[2:6]=", arr[2:6])
-	fmt.Println("arr[:6]=", arr[:6])
+	fmt.Println("arr[2:6] =", arr[2:6])
+	fmt.Println("arr[:6] =", arr[:6])
 	s1 := arr[2:]
-	fmt.Println("arr[2:]=", s1)
+	fmt.Println("s1 =", s1)
 	s2 := arr[:]
-	fmt.Println("arr[:]=", s2)
+	fmt.Println("s2 =", s2)
 
+	fmt.Println("After updateSlice(s1)")
 	updateSlice(s1)
+	fmt.Println(s1)
+	fmt.Println(arr)
+
+	fmt.Println("After updateSlice(s2)")
 	updateSlice(s2)
-
+	fmt.Println(s2)
 	fmt.Println(arr)
 
-	s3 := arr[2:6]
-	s4 := s3[3:5]
-	//神奇的地方 映射的原数组arr
-	fmt.Println(s3, s4)
-	fmt.Println(len(s3), len(s4))
-	fmt.Println(cap(s3), cap(s4))
+	fmt.Println("Reslice")
+	fmt.Println(s2)
+	s2 = s2[:5]
+	fmt.Println(s2)
+	s2 = s2[2:]
+	fmt.Println(s2)
 
-	s5 := append(s1, 10)
-	s6 := append(s5, 11)
-	s7 := append(s6, 12)
-	s8 := append(s7, 13)
+	fmt.Println("Extending slice")
+	arr[0], arr[2] = 0, 2
+	fmt.Println("arr =", arr)
+	s1 = arr[2:6]
+	s2 = s1[3:5] // [s1[3], s1[4]]
+	fmt.Printf("s1=%v, len(s1)=%d, cap(s1)=%d\n",
+		s1, len(s1), cap(s1))
+	fmt.Printf("s2=%v, len(s2)=%d, cap(s2)=%d\n",
+		s2, len(s2), cap(s2))
 
-	fmt.Println(s5, s6, s7, s8)
+	s3 := append(s2, 10)
+	s4 := append(s3, 11)
+	s5 := append(s4, 12)
+	fmt.Println("s3, s4, s5 =", s3, s4, s5)
+	// s4 and s5 no longer view arr.
+	fmt.Println("arr =", arr)
 
-	fmt.Println(arr)
+	// Uncomment to run sliceOps demo.
+	// If we see undefined: sliceOps
+	// please try go run slices.go sliceops.go
+	fmt.Println("Uncomment to see sliceOps demo")
+	sliceOps()
 
 }

@@ -13,6 +13,8 @@ func sliceOps() {
 	//默认值 s=nil
 	var s []int
 
+	printSlice(s)
+
 	for i := 0; i < 100; i++ {
 		//printSlice(s)
 		s = append(s, i*2+1)
@@ -35,6 +37,8 @@ func sliceOps() {
 	printSlice(s2)
 
 	s2[4] = 5
+	printSlice(s2)
+
 	//多向少拷贝， 超过cap的会被忽略
 	copy(s1, s2)
 	printSlice(s1)

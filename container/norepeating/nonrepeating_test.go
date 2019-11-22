@@ -68,7 +68,8 @@ func BenchmarkSubStr(b *testing.B) {
 	//可以使用命令 go test -bench .
 	//运行benchmark
 	//go test -bench . -cpuprofile cpu.out
-	//生成cpu.out
+	//go test -bench . -memprofile mem.out
+	//生成cpu.out  mem.out是内存
 	//go tool pprof cpu.out
 	//交互式命令行  help 可以查看命令
 	//web
