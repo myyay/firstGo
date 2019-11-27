@@ -19,4 +19,15 @@ func main() {
 	//0 2 3 4 5
 	root.NormalTraverse()
 
+	fmt.Println()
+
+	fmt.Println("traverse by traverse func")
+	root.Traverse()
+	nodeCount := 0
+	root.TraverseFunc(func(node *tree.Node) {
+		nodeCount++
+	})
+
+	fmt.Println("Node count: ", nodeCount)
+
 }

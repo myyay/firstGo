@@ -2,14 +2,13 @@ package main
 
 import (
 	"bufio"
-	"errors"
 	"firstGo/functional/fibonacci/fib"
 	"fmt"
 	"os"
 )
 
 func tryDefer() {
-	//表示函数退出之前打印
+	//表示函数退出之前打印  defer是一个栈 先进后出
 	defer fmt.Println(1)
 	defer fmt.Println(2)
 	fmt.Println(3)
@@ -41,20 +40,18 @@ func writeFile(filename string) {
 func tryErr(filename string) {
 	file, err := os.OpenFile(filename, os.O_EXCL|os.O_CREATE, 0666)
 
-	err = errors.New("this is a custom error")
+	//err = errors.New("this is a custom error")
 
 	if pathError, ok := err.(*os.PathError); !ok {
 		panic(err)
 	} else {
-		fmt.Printf("%s, %s, %s", pathError.Op, pathError.Path, pathError.Err)
-		fmt.Println()
+		fmt.Printf("%s, %s, %s\n", pathError.Op, pathError.Path, pathError.Err)
 	}
+	defer file.Close()
 
 	if err != nil {
 		panic(err)
 	}
-
-	defer file.Close()
 
 }
 

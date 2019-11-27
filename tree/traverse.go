@@ -30,9 +30,9 @@ func (node *Node) TraverseFunc(f func(node *Node)) {
 		return
 	}
 	//如果left是空也可以使用
-	node.Left.Traverse()
+	node.Left.TraverseFunc(f)
 	f(node)
-	node.Right.Traverse()
+	node.Right.TraverseFunc(f)
 }
 
 func (node *Node) TraverseWithChannel() chan *Node {

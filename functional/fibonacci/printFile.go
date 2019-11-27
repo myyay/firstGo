@@ -21,10 +21,12 @@ type intGen func() int
 func (g intGen) Read(p []byte) (n int, err error) {
 	//直接调一下
 	next := g()
+	//reader
 	if next > 10000 {
 		return 0, io.EOF
 	}
 	s := fmt.Sprintf("%d\n", next)
+	// TODO: incorrect if p is too small!
 	return strings.NewReader(s).Read(p)
 
 }
@@ -38,7 +40,17 @@ func printFileContents(reader io.Reader) {
 }
 
 func main() {
-	var f intGen = fib.Fibonacci()
-	printFileContents(f)
+	f := fib.Fibonacci()
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+	fmt.Println(f())
+
+	fmt.Println("======================")
+
+	var gen intGen = fib.Fibonacci()
+	printFileContents(gen)
 
 }
