@@ -7,6 +7,8 @@ import (
 )
 
 //执行命令 go run -race goroutine2.go
+//这个跟goroutine 的区别是 不把i传进到函数里
+//会报 runtime error: index out of range [10] with length 10
 func main() {
 	var a [10]int
 	for i := 0; i < 10; i++ {

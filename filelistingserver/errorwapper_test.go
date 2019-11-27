@@ -88,6 +88,7 @@ func TestErrorWrapperInServer(t *testing.T) {
 
 func verifyResponse(resp *http.Response, expectedCode int, expectedMsg string, t *testing.T) {
 	b, _ := ioutil.ReadAll(resp.Body)
+	//要把返回的换行符去掉
 	body := strings.Trim(string(b), "\n")
 	if resp.StatusCode != expectedCode || body != expectedMsg {
 		t.Errorf("got (%d, %s); expected (%d, %s);", resp.StatusCode, body, expectedCode, expectedMsg)

@@ -29,6 +29,26 @@ PATH 要加上GOPATH/bin
 需要下载 http://graphviz.gitlab.io/
 
 
+#### 文档 go doc
+
+`queue/queue.go`
+
+需要安装go tools包 https://github.com/golang/tools
+1.
+
+翻墙  go get -v -u golang.org/x/tools/cmd/godoc
+
+不翻墙 
+git clone https://github.com/golang/tools $GOPATH/src/golang.org/x/tools 
+git clone https://github.com/golang/tools %GOPATH%/src/golang.org/x/tools 
+
+或者用以上的gopm也可以  gopm get -u -v -g golang.org/x/tools/cmd/godoc
+
+2.
+
+go build $GOPATH/src/golang.org/x/tools/cmd/godocg
+mv $GOPATH/src/golang.org/x/tools/cmd/godoc/godoc $GOPATH/bin/
+
 
 
 
