@@ -5,6 +5,8 @@ import (
 	"log"
 	"net/http"
 	"os"
+	//有了这个就可以监控服务器, 可以到这个文件里看都有哪些操作！！！！
+	_ "net/http/pprof"
 )
 
 type appHandler func(writer http.ResponseWriter, request *http.Request) error
