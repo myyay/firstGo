@@ -30,4 +30,16 @@ func main() {
 
 	fmt.Println("Node count: ", nodeCount)
 
+	out := root.TraverseWithChannel()
+	maxNodeValue := 0
+	for n := range out {
+		if n.Value > maxNodeValue {
+			maxNodeValue = n.Value
+		}
+		n.Print()
+	}
+
+	fmt.Println()
+	fmt.Printf("maxValue of Tree is %d \n", maxNodeValue)
+
 }

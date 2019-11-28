@@ -57,7 +57,6 @@ func worker(id int, c chan int) {
 		fmt.Printf("Worker %d received %d \n", id, n)
 
 	}
-
 }
 
 func bufferedChannel() {
