@@ -86,7 +86,7 @@ func main() {
 
 	fmt.Println("===========================")
 
-	//数据在传递时也是值拷贝
+	//数组在传递时也是值拷贝
 	arr := [...]int{2, 3, 6, 7, 9}
 
 	fmt.Printf("array : s position: %p, value: %v \n", &arr, arr)
